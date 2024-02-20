@@ -11,7 +11,7 @@
  * @param size ：数组的大小
  * @return 返回 my_array, 一个 Dyn_array
 */
-Dyn_arry dyn_array_init(int* array, int size)
+struct Dyn_arry_t dyn_array_init(int* array, int size)
 {
 	// 先创建一个堆栈，用来作为初始动态数组的容器
 	int* temp = malloc(sizeof(int) * size * 2);
@@ -26,7 +26,7 @@ Dyn_arry dyn_array_init(int* array, int size)
 		// 这里不能使用 memcpy 来复制 array 到 temp，在这里array 只是一个指针
 	}
 
-	Dyn_arry my_array;
+	struct Dyn_arry_t my_array;
 	my_array.array = temp;
 	my_array.capacity = size * 2;
 	my_array.size = size;
@@ -34,7 +34,7 @@ Dyn_arry dyn_array_init(int* array, int size)
 	return my_array;
 }
 
-void dyn_array_insert(Dyn_arry* array, int var)
+void dyn_array_insert(struct Dyn_arry_t* array, int var)
 {
 	if ((array->size) < (array->capacity))
 	{
@@ -66,7 +66,7 @@ void dyn_array_insert(Dyn_arry* array, int var)
 void dyn_array_test(void)
 {
 	Line("动态数组测试");
-	Dyn_arry darray;
+	struct Dyn_arry_t darray;
 	//int iarray[5] = { 1,2,3,4,5 };
 	darray = dyn_array_init((int[]) { 1, 2, 3, 4, 5 }, 5);
 	printf("动态数组测试\n");
@@ -77,9 +77,6 @@ void dyn_array_test(void)
 	}
 	printf("capacity:%d\n", darray.capacity);
 	print_array_int(darray.array, darray.size); // 打印数组
-
-	printf("排序darry后的数组：\n");
-	bubble_sort(darray.array, darray.size);
-	print_array_int(darray.array, darray.size); // 打印数组
+	
 	free(darray.array); // 释放堆内存
 }

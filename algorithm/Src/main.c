@@ -6,13 +6,13 @@
 int main(void)
 {
 	// Ã°ÅİÅÅĞò²âÊÔ
-	bubble_sort_test();
+	// bubble_sort_test();
 	// Ñ¡ÔñÅÅĞò
-	selection_sort_test();
+	// selection_sort_test();
 	// ²åÈëÅÅĞò
-	insert_sort_test();
+	// insert_sort_test();
 	// ±¯²¨ÄÇÆõÊıÁĞ
-	fibonacci_to_array_test();
+	// fibonacci_to_array_test();
 	// ¶¯Ì¬Êı×é²âÊÔ
 	dyn_array_test();
 }
